@@ -67,7 +67,7 @@ pipeline {
         }
                 stage('Deploy to PRODUCTION Lambda') {
             when {
-                branch 'dev'
+                branch 'master'
             }
             steps {
                                 sh "mv my_deployment.zip ${BRANCH_NAME}_deployment.zip"
