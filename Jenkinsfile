@@ -4,7 +4,7 @@ pipeline {
 
         DEV_LAMBDA_FUNCTION_NAME = 'dev_function'
         QA_LAMBDA_FUNCTION_NAME = 'qa_function'
-		STAGING_LAMBDA_FUNCTION_NAME = 'staging_function'
+	STAGING_LAMBDA_FUNCTION_NAME = 'staging_function'
         PRODUCTION_LAMBDA_FUNCTION_NAME = 'master_function'
 
     }
@@ -42,9 +42,9 @@ pipeline {
                 branch 'qa'
             }
             steps {
-				sh "mv my_deployment.zip qa_deployment.zip"
+				sh "mv my_deployment.zip ${BRANCH_NAME}_deployment.zip"
 				withCredentials([string(credentialsId: 'access_key', variable: 'ACCESS_KEY'), string(credentialsId: 'secret_key', variable: 'SECRET_KEY')]) {
-					sh "aws lambda update-function-code --function-name $QA_LAMBDA_FUNCTION_NAME --zip-file fileb://./qa_deployment.zip"
+					sh "aws lambda update-function-code --function-name $QA_LAMBDA_FUNCTION_NAME --zip-file fileb://./${BRANCH_NAME}_deployment.zip"
 				 
 				 }
 
