@@ -28,9 +28,9 @@ pipeline {
                 branch 'dev'
             }
             steps {
-				sh "mv my_deployment.zip ${branch}_deployment.zip"
+				sh "mv my_deployment.zip dev_deployment.zip"
 				withCredentials([string(credentialsId: 'access_key', variable: 'ACCESS_KEY'), string(credentialsId: 'secret_key', variable: 'SECRET_KEY')]) {
-					sh "aws lambda update-function-code --function-name $DEV_LAMBDA_FUNCTION_NAME --zip-file fileb://./${branch}_deployment.zip"
+					sh "aws lambda update-function-code --function-name $DEV_LAMBDA_FUNCTION_NAME --zip-file fileb://./dev_deployment.zip"
 				 
 				 }
 
@@ -42,9 +42,9 @@ pipeline {
                 branch 'qa'
             }
             steps {
-				sh "mv my_deployment.zip ${branch}_deployment.zip"
+				sh "mv my_deployment.zip qa_deployment.zip"
 				withCredentials([string(credentialsId: 'access_key', variable: 'ACCESS_KEY'), string(credentialsId: 'secret_key', variable: 'SECRET_KEY')]) {
-					sh "aws lambda update-function-code --function-name $QA_LAMBDA_FUNCTION_NAME --zip-file fileb://./${branch}_deployment.zip"
+					sh "aws lambda update-function-code --function-name $QA_LAMBDA_FUNCTION_NAME --zip-file fileb://./qa_deployment.zip"
 				 
 				 }
 
@@ -56,9 +56,9 @@ pipeline {
                 branch 'staging'
             }
             steps {
-				sh "mv my_deployment.zip ${branch}_deployment.zip"
+				sh "mv my_deployment.zip staging_deployment.zip"
 				withCredentials([string(credentialsId: 'access_key', variable: 'ACCESS_KEY'), string(credentialsId: 'secret_key', variable: 'SECRET_KEY')]) {
-					sh "aws lambda update-function-code --function-name $STAGING_LAMBDA_FUNCTION_NAME --zip-file fileb://./${branch}_deployment.zip"
+					sh "aws lambda update-function-code --function-name $STAGING_LAMBDA_FUNCTION_NAME --zip-file fileb://./staging_deployment.zip"
 				 
 				 }
 
@@ -70,9 +70,9 @@ pipeline {
                 branch 'dev'
             }
             steps {
-				sh "mv my_deployment.zip ${branch}_deployment.zip"
+				sh "mv my_deployment.zip master_deployment.zip"
 				withCredentials([string(credentialsId: 'access_key', variable: 'ACCESS_KEY'), string(credentialsId: 'secret_key', variable: 'SECRET_KEY')]) {
-					sh "aws lambda update-function-code --function-name $PRODUCTION_LAMBDA_FUNCTION_NAME --zip-file fileb://./${branch}_deployment.zip"
+					sh "aws lambda update-function-code --function-name $PRODUCTION_LAMBDA_FUNCTION_NAME --zip-file fileb://./master_deployment.zip"
 				 
 				 }
 
