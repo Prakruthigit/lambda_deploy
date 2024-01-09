@@ -11,10 +11,18 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                checkout scm
-                echo $"{BRANCH_NAME}"
+        stage('DEV Pipeline') 
+        {
+            when 
+            { 
+                branch "develop" 
+            }
+            steps 
+            {
+                script
+                {
+                    echo "{BRANCH_NAME}"
+                }
             }
         }
     }
