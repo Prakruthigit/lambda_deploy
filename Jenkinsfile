@@ -18,6 +18,9 @@ pipeline {
                     if("$GIT_BRANCH" == 'dev') {
                         echo "Loop success"
                     }
+                    else {
+                        echo "Other branch"
+                    }
                 }
             }
         }
