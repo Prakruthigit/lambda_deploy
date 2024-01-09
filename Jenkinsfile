@@ -15,7 +15,7 @@ pipeline {
         {
             when 
             { 
-                branch "develop" 
+                branch "dev" 
             }
             steps 
             {
