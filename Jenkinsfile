@@ -15,7 +15,7 @@ pipeline {
         {
             steps{
                 script{
-                    for (dev in branch)
+                    for (dev in ${env.BRANCH})
                         echo "Loop success"
                 }
             }
