@@ -19,7 +19,7 @@ pipeline {
 
         stage('echo branchname'){
             steps {
-                echo $branchname
+                echo $BRANCH_NAME
             }
         }
     }
