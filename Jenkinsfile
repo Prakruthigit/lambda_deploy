@@ -14,11 +14,6 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout scm
-            }
-        }
-
-        stage('echo branchname'){
-            steps {
                 echo $"{BRANCH_NAME}"
             }
         }
