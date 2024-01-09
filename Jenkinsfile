@@ -13,7 +13,7 @@ pipeline {
 
         stage('DEV Pipeline') 
         {
-            for(dev in branch) 
+            for dev in branch
                 do
                     echo "loop success"
                 done
