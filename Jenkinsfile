@@ -18,7 +18,9 @@ pipeline {
         }
 
         stage('echo branchname'){
-            echo $branchname
+            steps {
+                echo $branchname
+            }
         }
     }
 }
