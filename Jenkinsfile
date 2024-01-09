@@ -13,7 +13,7 @@ pipeline {
 
         stage('DEV Pipeline') 
         {
-            for(branch: dev) {
+            for(dev in branch) {
                 steps 
                     {
                         script
