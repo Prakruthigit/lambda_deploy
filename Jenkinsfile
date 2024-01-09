@@ -15,7 +15,7 @@ pipeline {
         {
             steps{
                 script{
-                    if("$environmentName" == 'dev') {
+                    if("$GIT_BRANCH" == 'dev') {
                         echo "Loop success"
                     }
                 }
