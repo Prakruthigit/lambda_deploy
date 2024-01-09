@@ -21,7 +21,7 @@ pipeline {
             {
                 script
                 {
-                    echo "{BRANCH_NAME}"
+                    echo "{GIT_BRANCH}"
                 }
             }
         }
