@@ -16,7 +16,7 @@ pipeline {
             steps{
                 script{
                     for (dev in branch)
-                        echo "{BRANCH_NAME}"
+                        echo "Loop success"
                 }
             }
         }
