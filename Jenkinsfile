@@ -13,16 +13,14 @@ pipeline {
 
         stage('DEV Pipeline') 
         {
-            when 
-            { 
-                branch "dev" 
-            }
-            steps 
-            {
-                script
-                {
-                    echo "{GIT_BRANCH}"
-                }
+            for(branch: dev) {
+                steps 
+                    {
+                        script
+                            {
+                                echo "{GIT_BRANCH}"
+                            }
+                    }
             }
         }
     }
