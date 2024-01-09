@@ -11,9 +11,17 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                checkout scm
+        stage('DEV Pipeline') 
+        {
+            steps{
+                script{
+                    if("$GIT_BRANCH" == 'dev') {
+                        echo "Loop success"
+                    }
+                    else {
+                        echo "Other branch"
+                    }
+                }
             }
         }
     }
