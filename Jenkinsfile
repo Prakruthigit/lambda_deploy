@@ -13,15 +13,10 @@ pipeline {
 
         stage('DEV Pipeline') 
         {
-            for(dev in branch) {
-                steps 
-                    {
-                        script
-                            {
-                                echo "{GIT_BRANCH}"
-                            }
-                    }
-            }
+            for(dev in branch) 
+                do
+                    echo "loop success"
+                done
         }
     }
 }
