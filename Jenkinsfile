@@ -16,5 +16,9 @@ pipeline {
                 checkout scm
             }
         }
+
+        stage('echo branchname'){
+            echo $branchname
+        }
     }
 }
