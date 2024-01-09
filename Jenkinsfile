@@ -15,7 +15,7 @@ pipeline {
         {
             steps{
                 script{
-                    if (${env.BRANCH} == "dev") {
+                    if("$environmentName" == 'dev') {
                         echo "Loop success"
                     }
                 }
