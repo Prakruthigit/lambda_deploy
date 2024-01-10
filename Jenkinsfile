@@ -22,7 +22,7 @@ def ENV = [:]
  
 for (env in config) {
 
-  echo "${func_name}"
+  echo "Loop success"
 
 }
 
