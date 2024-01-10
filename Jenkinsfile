@@ -11,26 +11,21 @@ def environments = [
 ]
  
 pipeline {
- 
   agent any
- 
-  stages {
- 
-    stage('Deploy') {
-
-      steps {
-
-        script {
-
-          for (env in environments) {
-
-           echo "Loop success"
-
+    stages {
+      stage('Deploy') {
+        steps {
+          script {
+            for (env in environments) {
+              echo "Loop success"
+            }
           }
-
         }
+      }
     }
 }
+
+
 
 
 
