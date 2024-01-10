@@ -1,28 +1,33 @@
+def environments = [
+
+  'dev',
+
+  'qa',
+
+  'uat',
+
+  'prod'
+
+]
+ 
 pipeline {
-    agent any
-    environment {
+ 
+  agent any
+ 
+  stages {
+ 
+    stage('Deploy') {
 
-        DEV_LAMBDA_FUNCTION_NAME = 'dev_function'
-        QA_LAMBDA_FUNCTION_NAME = 'qa_function'
-        STAGING_LAMBDA_FUNCTION_NAME = 'staging_function'
-        PRODUCTION_LAMBDA_FUNCTION_NAME = 'master_function'
+      steps {
 
-    }
+        script {
 
-    stages {
+          for (env in environments) {
 
-        stage('DEV Pipeline') 
-        {
-            steps{
-                script{
-                    if("$GIT_BRANCH" == 'dev') {
-                        echo "Loop success"
-                    }
-                    else {
-                        echo "Other branch"
-                    }
-                }
-            }
+           echo "Loop success"
+
+          }
+
         }
     }
 }
